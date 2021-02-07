@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    /* background-color: deepskyblue; */
+  }
+  body {
+    background: rgb(141, 223, 248);
+  }
+  img {
+    margin-left: 25%;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  .ulist {
+    background-color: aquamarine;
+    margin: 0;
+    padding: 10px;
+    float: right;
+    padding: 10%;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 3%;
+    padding-bottom: auto;
+  }
+  .dlist {
+    background-color: #d1b5ff;
+    margin: 0;
+    padding: 10%;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+  .usReport,
+  .title {
+    background-color: rgb(255, 192, 116);
+    margin: 0;
+    padding-left: 9%;
+  }
+  
