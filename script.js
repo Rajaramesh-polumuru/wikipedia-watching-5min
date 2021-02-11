@@ -42,20 +42,34 @@ eventsource.onmessage = function (msg) {
 setInterval(function () {
   var body = document.getElementById("root");
   body.innerHTML = "";
-}, 60 * 1000);
+}, 6 * 1000);
 
 setInterval(function () {
   var title = document.createElement("h1");
-  title.className = "title";
-  title.textContent = "Domains Report(last 1 minute)";
+  var title2 = document.createElement("h1");
   var body = document.getElementById("root");
-  body.append(title);
+  var size = Object.keys(data).length;
+  var body = document.getElementById("root");
   var x,
     txt = "";
   var dlist = document.createElement("div");
 
-  for (x in data) {
-    txt += x + " : " + data[x];
+  title.className = "title";
+  title2.className = "title";
+
+  title.textContent = "Domains Report(last 1 minute)";
+  title2.textContent = "Total number of Wikipedia Domains Updated: " + size;
+
+  body.append(title);
+  body.append(title2);
+
+  const sortable1 = Object.fromEntries(
+    Object.entries(data).sort(([, a], [, b]) => b - a)
+  );
+  console.log(sortable1);
+
+  for (x in sortable1) {
+    txt += x + " : " + sortable1[x] + "  pages updated";
     var listItem = document.createElement("h3");
     listItem.className = "listItem";
     listItem.textContent = txt;
@@ -67,13 +81,14 @@ setInterval(function () {
     dlist.append(listItem);
     body.append(dlist);
   }
-  console.log(data);
+  console.log(sortable1);
 
   var usReport = document.createElement("h1");
   usReport.className = "usReport";
   usReport.textContent = "Users Report(last 1 minute)";
   var body = document.getElementById("root");
   body.append(usReport);
+
   var y,
     utext = "";
   const sortable = Object.fromEntries(
@@ -81,6 +96,7 @@ setInterval(function () {
   );
   console.log(sortable);
   var ulist = document.createElement("div");
+
   for (y in sortable) {
     utext += y + " : " + sortable[y];
     var listItem = document.createElement("h3");
@@ -98,4 +114,4 @@ setInterval(function () {
   }
   data = {};
   userList = {};
-}, 60 * 1000);
+}, 6 * 1000);
