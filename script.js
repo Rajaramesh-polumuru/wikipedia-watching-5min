@@ -4,8 +4,7 @@ let userList = {};
 eventsource = new EventSource(
   "https://stream.wikimedia.org/v2/stream/revision-create"
 );
-eventsource.onopen = function () {};
-eventsource.onerror = function (msg) {};
+
 eventsource.onmessage = function (msg) {
   let serName = JSON.parse(msg.data).meta.domain;
   let botValue = JSON.parse(msg.data).performer.user_is_bot;
