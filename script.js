@@ -42,7 +42,7 @@ eventsource.onmessage = function (msg) {
 setInterval(function () {
   var body = document.getElementById("root");
   body.innerHTML = "";
-}, 6 * 1000);
+}, 60 * 1000);
 
 setInterval(function () {
   var title = document.createElement("h1");
@@ -114,4 +114,4 @@ setInterval(function () {
   }
   data = {};
   userList = {};
-}, 6 * 1000);
+}, 60 * 1000);
