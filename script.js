@@ -85,14 +85,14 @@ setInterval(function () {
 
   var usReport = document.createElement("h1");
   usReport.className = "usReport";
-  usReport.textContent = "Users Report(last 1 minute)";
+  usReport.textContent = "Users who made changes to en.wikipedia.org";
   var body = document.getElementById("root");
   body.append(usReport);
 
   var y,
     utext = "";
   const sortable = Object.fromEntries(
-    Object.entries(userList).sort(([, a], [, b]) => a - b)
+    Object.entries(userList).sort(([, a], [, b]) => b - a)
   );
   console.log(sortable);
   var ulist = document.createElement("div");
