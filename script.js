@@ -31,20 +31,19 @@ eventsource.onmessage = function (msg) {
           // console.log(`${userName}:${userList[userName]}`);
         }
       }
-    // if (!userEditCount) console.log(userName);
   }
 };
 
-// setInterval(function () {
-//   var body = document.getElementById("root");
-//   body.innerHTML = "";
-// }, 10);
 setInterval(function () {
   var body = document.getElementById("root");
   body.innerHTML = "";
-}, 60 * 1000);
+  data = {};
+  userList = {};
+}, 5 * 60 * 1000);
 
 setInterval(function () {
+  var body = document.getElementById("root");
+  body.innerHTML = "";
   var title = document.createElement("h1");
   var title2 = document.createElement("h1");
   var body = document.getElementById("root");
@@ -57,7 +56,7 @@ setInterval(function () {
   title.className = "title";
   title2.className = "title";
 
-  title.textContent = "Domains Report(last 1 minute)";
+  title.textContent = "Domains Report";
   title2.textContent = "Total number of Wikipedia Domains Updated: " + size;
 
   body.append(title);
@@ -112,6 +111,4 @@ setInterval(function () {
     body.append(ulist);
     // body.append(nl);
   }
-  data = {};
-  userList = {};
 }, 60 * 1000);
